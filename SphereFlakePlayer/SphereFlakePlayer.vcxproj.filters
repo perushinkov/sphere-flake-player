@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{655f5ce4-3c46-48e1-aba2-7b2f2cbea4c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\meshes">
+      <UniqueIdentifier>{c6004e14-08ea-47ea-ad43-9e18e25ecb0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\meshes">
+      <UniqueIdentifier>{fcbd21c7-47f6-4453-9c48-e2bf75081dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\calc">
+      <UniqueIdentifier>{5365854e-8969-4bcd-acc9-ab012a1b8a93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\calc">
+      <UniqueIdentifier>{d46553aa-c4d8-493d-8fdf-1a245b81173c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\App.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\meshes\Polygon.cpp">
+      <Filter>Source Files\meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\meshes\MeshDepot.cpp">
+      <Filter>Source Files\meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\meshes\MeshFactory.cpp">
+      <Filter>Source Files\meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\meshes\Sphere.cpp">
+      <Filter>Source Files\meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\calc\Calc.cpp">
+      <Filter>Source Files\calc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\App.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\Mesh.h">
+      <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\Polygon.h">
+      <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\MeshDepot.h">
+      <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\MeshFactory.h">
+      <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glewInclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\Sphere.h">
+      <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\calc\Calc.h">
+      <Filter>Header Files\calc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\shaders\simple.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="bin\shaders\simple.vert">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
