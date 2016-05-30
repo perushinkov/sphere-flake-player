@@ -1,6 +1,6 @@
 #include "Axis.h"
-
-
+#include <iostream>
+#include "../App.h"
 
 Axes::Axes() : m_x(1.f, 0.f, 0.f), m_y(0.f, 1.f, 0.f), m_z(0.f, 0.f, 1.f) {}
 
@@ -39,7 +39,56 @@ void Axes::rotateZ(float howMuch) {
 }
 
 /*
-  So far I am not too familiar with glm... I'll implement it from ground zero!
+  Replaced by glm::lookAt since I didn't have the time to figure out what's wrong.
+ 
+  Returns the two components of the rotation required for a global z and x vectors
+  to become the current local z and x vectors.
+*/
+void Axes::getRotationMatrixFromZUnit(glm::mat4& rotSecond, glm::mat4& rotFirst) const {
+ /* glm::vec4 cameraPos(1.f, 0.f, 0.f, 1.f);
+  
+  glm::vec4 zUnit(0.f, 0.f, 1.f, 1.f);
+  glm::vec4 xUnit(1.f, 0.f, 0.f, 1.f);
+  glm::vec4 yUnit(0.f, 1.f, 0.f, 1.f);
+
+  
+
+  glm::mat4 rotMatrix;
+  glm::vec3 zAxis(0.f, 0.f, 1.f), xAxis(1.f, 0.f, 0.f);
+
+  glm::vec3 cross = glm::cross(zAxis, m_z);
+  float dotres = glm::clamp(glm::dot(glm::normalize(zAxis), glm::normalize(m_z)), -0.9999999999f, 0.9999999999f);
+  float dot = acosf(dotres);
+
+  if (fabs(dot) > MIN_FLOAT_DIFF) {
+    rotFirst = glm::rotate(rotMatrix, dot, cross);
+  }
+
+  xAxis = glm::vec3(rotFirst * glm::vec4(xAxis, 1.f));
+  glm::vec3 cross2 = glm::normalize(glm::cross(xAxis, m_x));
+  float dot2res = glm::clamp(glm::dot(glm::normalize(xAxis), glm::normalize(m_x)), -0.9999999999f, 0.9999999999f);
+  float dot2 = acosf(dot2res);
+  if (fabs(dot2) > MIN_FLOAT_DIFF) {
+      
+  rotSecond = glm::rotate(rotMatrix, dot2, cross2);
+
+  // testing... resultZ is supposed to equal m_z
+  // testing... resultX is supposed to equal m_X
+
+  glm::mat4 proj = App::getApp().m_translate;
+  glm::vec4 resultZF = rotFirst * proj *zUnit; // vertex shader will work this way
+  glm::vec4 resultXF = rotFirst * proj *xUnit;
+  glm::vec4 resultYF = rotFirst * proj *yUnit;
+
+  glm::vec4 resultZ = rotSecond * resultZF; // vertex shader will work this way
+  glm::vec4 resultX = rotSecond * resultXF;
+  glm::vec4 resultY = rotSecond * resultYF;
+  resultZ += resultX;
+  */
+}
+
+/*
+  So far I am not too familiar with glm... I'll implement this from ground zero.
 
   NOTE: 
     There is most likely a formula that does what I need much faster, 

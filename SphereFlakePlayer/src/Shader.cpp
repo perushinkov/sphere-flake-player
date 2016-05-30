@@ -116,9 +116,9 @@ void Shader::setProjectionMatrix(const glm::mat4& projMat) {
   glUniformMatrix4fv(projMatLoc, 1, GL_FALSE, glm::value_ptr(projMat));
 }
 
-void Shader::setViewMatrix(const glm::mat4& viewMat) {
-  GLint projMatLoc = glGetUniformLocation(m_program, "view");
-  glUniformMatrix4fv(projMatLoc, 1, GL_FALSE, glm::value_ptr(viewMat));
+void Shader::setViewMatrix(const glm::mat4& viewMatrix) {
+  GLint tiltViewLoc = glGetUniformLocation(m_program, "view");
+  glUniformMatrix4fv(tiltViewLoc, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 }
 
 void Shader::setTranslationMatrix(const glm::mat4& transMat) {

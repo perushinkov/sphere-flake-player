@@ -13,7 +13,7 @@ public:
   void Bind();
   void setColour(GLfloat r, GLfloat g, GLfloat b);
   void setProjectionMatrix(const glm::mat4& projMat);
-  void setViewMatrix(const glm::mat4& viewMat);
+  void setViewMatrix(const glm::mat4& viewMatrix);
   void setTranslationMatrix(const glm::mat4& transMat);
   void setScaleMatrix(const glm::mat4& scaleMat);
 

@@ -3,3 +3,6 @@
 /*.suo
 /SphereFlakePlayer/Debug
 /Debug
+/SphereFlakePlayer/bin/*.ilk
+/SphereFlakePlayer/bin/*.pdb
+/SphereFlakePlayer/bin/*.exe

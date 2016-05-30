@@ -2,6 +2,7 @@
 #define PERUSHINKOV_APP_H
 
 #include "meshes\MeshDepot.h"
+#include "meshes\Axis.h"
 #include "Shader.h"
 #include <glm\gtc\quaternion.hpp>
 
@@ -16,21 +17,18 @@ public:
 
   const int WIDTH = 800;
   const int HEIGHT = 600;
-  glm::mat4 m_view;
+ // glm::mat4 m_view;
+  glm::mat4 m_proj;
+
+  glm::mat4 m_translate;
+  glm::mat4 m_scale;
+
 private:
   GLFWwindow* m_window;
   Shader* m_shader;
   MeshDepot* m_meshDepot;
-  glm::mat4 m_proj;
-  glm::mat4 m_translate;
-  glm::mat4 m_scale;
 
-  float xRotation = 0.f;
-  float yRotation = 0.f;
-  glm::vec3 m_camXAxis = glm::vec3(1.f, 0.f, 0.f);
-  glm::vec3 m_camYAxis = glm::vec3(0.f, 1.f, 0.f);
-
- 
+  Axes m_cameraAxes;
 
   static App* m_app;
   App();

@@ -15,7 +15,7 @@ void main()
 {
 	vec4 pos4 = vec4(position, 1.0f);
 
-    gl_Position = projection * view *  translation * pos4;
+    gl_Position = projection * view * translation * pos4;
 	
 	
 	fragNormal = normal;

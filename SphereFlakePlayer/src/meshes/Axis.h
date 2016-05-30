@@ -34,8 +34,7 @@ public:
   const glm::vec3& x() const;
   const glm::vec3& y() const;
   const glm::vec3& z() const;
-
-
+ 
   static glm::vec3 rotatePointAroundAxis(const glm::vec3& pt, const glm::vec3& axis, float howMuch);
 private:
   void rotate(int whichAxis, float howMuch);
@@ -44,6 +43,8 @@ private:
   glm::vec3 m_y;
   glm::vec3 m_z;
   
+  // Deprecated...
+  void getRotationMatrixFromZUnit(glm::mat4& rotFirst, glm::mat4& rotSecond) const;
 
   
 };

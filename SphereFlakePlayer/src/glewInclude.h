@@ -11,4 +11,6 @@ const float MIN_FLOAT_DIFF = 0.0000001f;
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+#include <glm/gtc/matrix_transform.hpp>
+
 #endif
