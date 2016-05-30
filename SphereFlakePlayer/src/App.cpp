@@ -6,8 +6,10 @@
 #include "meshes\MeshFactory.h"
 #include <iostream>
 
-#include <glm/gtc/matrix_transform.hpp>  
+#include <glm/gtc/matrix_transform.hpp>
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 App* App::m_app = nullptr;
 
@@ -90,15 +92,21 @@ void App::startEventLoop() {
 
 
     glm::mat4 rota;
-    rota = glm::rotate(rota, xRotation, glm::vec3(1.f, 0.f, 0.f));
-    rota = glm::rotate(rota, yRotation, glm::vec3(0.f, 1.f, 0.f));
+    rota = glm::rotate(rota, yRotation, glm::vec3(0.f, (-1.f), 0.f));
+    glm::vec4 theX = rota * glm::vec4((-1.f), 0.f, 0.f, 1.f);
+    rota = glm::rotate(rota, xRotation, glm::vec3(theX));
     m_view = rota;
+
+
+
 
     m_shader->Bind();
     m_shader->setColour(0.3f, 0.9f, 0.2f);
     m_shader->setProjectionMatrix(m_proj);
+
     // It's a rotation matrix really
     m_shader->setViewMatrix(m_view);
+
     m_shader->setTranslationMatrix(m_translate);
     m_shader->setScaleMatrix(m_scale);
     //sphere.Draw();
@@ -121,16 +129,20 @@ void App::key_callback(GLFWwindow* window, int key, int scancode, int action, in
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GL_TRUE);
   else if (key == GLFW_KEY_DOWN && action != GLFW_PRESS) {
-    app.xRotation += 0.03;
+    app.xRotation -= 0.03;
+    std::cout << "X:" << app.xRotation << "Y:" << app.yRotation << std::endl;
   }
   else if (key == GLFW_KEY_UP && action != GLFW_PRESS) {
-    app.xRotation -= 0.03;
+    app.xRotation += 0.03;
+    std::cout << "X:" << app.xRotation << "Y:" << app.yRotation << std::endl;
   }
   else if (key == GLFW_KEY_RIGHT && action != GLFW_PRESS) {
-    app.yRotation += 0.03;
+    app.yRotation -= 0.03;
+    std::cout << "X:" << app.xRotation << "Y:" << app.yRotation << std::endl;
   }
   else if (key == GLFW_KEY_LEFT && action != GLFW_PRESS) {
-    app.yRotation -= 0.03;
+    app.yRotation += 0.03;
+    std::cout << "X:" << app.xRotation << "Y:" << app.yRotation << std::endl;
   }
   else if (key == GLFW_KEY_KP_ADD && action != GLFW_PRESS) {
     app.m_scale = glm::scale(app.m_scale, glm::vec3(0.9f, 0.9f, 0.9f));
@@ -142,18 +154,17 @@ void App::key_callback(GLFWwindow* window, int key, int scancode, int action, in
   }
   else if (key == GLFW_KEY_SPACE) {
     int sign = backwards ? -1 : 1;
-
     glm::vec4 unit(0.f, 0.f, (-1.f), 1.f);
     glm::mat4 rota;
-    rota = glm::rotate(rota, app.xRotation, glm::vec3((-1.f), 0.f, 0.f));
-    rota = glm::rotate(rota, app.yRotation, glm::vec3(0.f, (-1.f), 0.f));
-    float scaleFactor = app.m_scale[0][0];
+    rota = glm::rotate(rota, app.yRotation, glm::vec3(0.f, (1.f), 0.f));
+    glm::vec4 theX = rota * glm::vec4((1.f), 0.f, 0.f, 1.f);
+    rota = glm::rotate(rota, app.xRotation, glm::vec3(theX));
+
     // The other algorithm resulted in strange effects... maybe gimbal lock?
     // It just rotated all around the x or y axis. But then axis got transformed, too...
     // So a mess! This works... so it's alright!
-
-     app.m_translate = glm::translate(app.m_translate, - glm::vec3(normalize(rota * unit))*0.01f * float(sign) * scaleFactor);
-
+    
+    app.m_translate = glm::translate(app.m_translate, -glm::vec3(glm::normalize(rota * unit)) * 0.01f * float(sign));
   }
   else if (key == GLFW_KEY_LEFT_CONTROL && action == GLFW_PRESS) {
     backwards = !backwards;

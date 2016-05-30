@@ -54,6 +54,9 @@
     <ClCompile Include="src\calc\Calc.cpp">
       <Filter>Source Files\calc</Filter>
     </ClCompile>
+    <ClCompile Include="src\meshes\Axis.cpp">
+      <Filter>Source Files\meshes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h">
@@ -82,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="src\calc\Calc.h">
       <Filter>Header Files\calc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\meshes\Axis.h">
+      <Filter>Header Files\meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
