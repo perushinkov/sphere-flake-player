@@ -11,7 +11,7 @@ The rerender is currently not automatic due to lack of optimizations. In the fut
 
 Screenshots of the results:
 
-<img src="https://github.com/perushinkov/sphere-flake-player/blob/master/demo_images/quality.jpg">
+<img src="https://github.com/perushinkov/sphere-flake-player/blob/master/demo_images/quality.png">
 
 And associated controls:
 
